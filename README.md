@@ -1,2 +1,3 @@
 # f2c
-# f2c
+
+A simple farenheit/celcius conversion tool in Rust.
