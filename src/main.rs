@@ -3,22 +3,24 @@ use std::io::stdin;
 fn main() {
     println!("Enter F (Farenheit) or C (Celcius) for unit type to convert");
 
-    let mut unit = String::new();
+    let mut unit: String = String::new();
 
     stdin().read_line(&mut unit).expect("Unable to read line");
 
     println!("Enter value to convert");
 
-    let mut val = String::new();
+    let mut val: String = String::new();
 
     stdin().read_line(&mut val).expect("Unable to read line");
 
     let val: f64 = val.trim().parse().expect("Please enter a number");
 
-    if unit.trim().eq_ignore_ascii_case("f") {
+    let unit: &str = unit.trim();
+
+    if unit.eq_ignore_ascii_case("f") {
         let conversion: f64 = ftoc(val);
         println!("{:.2}°C", conversion);
-    } else if unit.trim().eq_ignore_ascii_case("c") {
+    } else if unit.eq_ignore_ascii_case("c") {
         let conversion: f64 = ctof(val);
         println!("{:.2}°F", conversion)
     } else {
